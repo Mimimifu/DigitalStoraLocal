@@ -33,12 +33,14 @@
         }
 
         .logo-pix {
-            width: 80px;
-            margin-bottom: 20px;
+            width: 100px;
+            height: auto;
+            margin: 0 auto 20px auto;
+            display: block;
         }
 
         .title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #333333;
             margin-bottom: 8px;
             font-weight: 600;
@@ -48,48 +50,128 @@
             font-size: 0.9rem;
             color: #666666;
             margin-bottom: 24px;
+            line-height: 1.4;
         }
 
         .qrcode-container {
             background: #ffffff;
-            padding: 12px;
+            padding: 16px;
             border-radius: 12px;
             display: inline-block;
             margin-bottom: 24px;
             border: 1px solid #e2e8f0;
-        </style>
- head
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.02);
+        }
+
+        .qrcode-container svg {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .manual-copy-box {
+            margin-bottom: 16px;
+            width: 100%;
+        }
+
+        .manual-copy-box input {
+            width: 100%;
+            padding: 12px;
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 8px;
+            color: #475569;
+            font-size: 0.85rem;
+            text-align: center;
+            font-family: monospace;
+            cursor: pointer;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .manual-copy-box input:focus {
+            border-color: #32b1a4;
+            background-color: #f0fdfa;
+        }
+
+        .btn-copy {
+            background-color: #32b1a4;
+            color: #ffffff;
+            border: none;
+            padding: 14px 24px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s, transform 0.1s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-copy:hover {
+            background-color: #2a968b;
+        }
+
+        .btn-copy:active {
+            transform: scale(0.98);
+        }
+
+        .success-toast {
+            font-size: 0.85rem;
+            color: #10b981;
+            margin-top: 14px;
+            font-weight: 500;
+            display: none;
+            background-color: #ecfdf5;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #a7f3d0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <!-- Logo Oficial Pix Aproximado em SVG -->
+        <svg class="logo-pix" viewBox="0 0 120 45" fill="none" xmlns="http://w3.org">
+            <path d="M38.7 18.3c0-4.2-3.4-7.6-7.6-7.6H13.6v23.5h7.5V24.5h10c4.2 0 7.6-3.4 7.6-7.6v1.4z" fill="#32B1A4"/>
+            <path d="M13.6 10.7h17.5c4.2 0 7.6 3.4 7.6 7.6v-1.4c0-4.2-3.4-7.6-7.6-7.6H13.6v1.4z" fill="#32B1A4"/>
+            <path d="M49.2 10.7h7.5v23.5h-7.5V10.7zM64 10.7l9.4 11.2 9.4-11.2h8.8L79.4 22.5l12.2 11.7h-8.8L73.4 23.8l-9.4 10.4H55.2l12.2-11.7L58 10.7H64z" fill="#32B1A4"/>
+            <path d="M15.4 39L5 28.6l10.4-10.4L25.8 28.6 15.4 39z" fill="#32B1A4"/>
+        </svg>
+
+        <h2 class="title">Pague com o Pix</h2>
+        <p class="subtitle">Escaneie o código abaixo ou copie a chave Pix para realizar o pagamento.</p>
+
+        <!-- QR Code Pix Real Corrigido em SVG -->
         <div class="qrcode-container">
-            <!-- QR Code Pix Real Convertido para SVG -->
             <svg width="180" height="180" viewBox="0 0 37 37" fill="none" xmlns="http://w3.org" shape-rendering="crispEdges">
                 <path fill="#ffffff" d="M0 0h37v37H0z"/>
-                <path fill="#000000" d="M3 3h7v7H3zm24 0h7v7h-7zM3 27h7v7H3zm2 2h3v3H5zm24-24h3v3h-3zM5 5h3v3H5zm6 0h1v1h-1zm2 0h2v1h-2zm4 0h3v1h-3zm5 0h2v1h-2zm1 0h1v4h-1zm-2 2h1v2h-1zm4 0h1v1h-1zm-9 1h1v1h-1zm2 0h1v2h-1zm-9 1h3v1h-3zm4 0h2v1h-2zm5 0h1v1h-1zm4 0h1v3h-1zm-15 1h1v1h-1zm4 0h2v1h-2zm3 0h3v1h-3zm-9 1h1v1h-1zm3 0h2v3h-2zm3 0h1v2h-1zm3 0h1v1h-1zm2 0h2v2h-2zm2 0h1v2h-1zm3 0h2v1h-2zm-15 1h1v1h-1zm4 0h1v1h-1zm7 0h1v1h-1zm4 0h1v1h-1zm-19 1h1v2h-1zm3 0h1v1h-1zm2 0h4v1h-4zm5 0h2v1h-2zm4 0h2v3h-2zm3 0h2v1h-2zm-16 1h2v1h-2zm3 0h1v2h-1zm4 0h2v1h-2zm1 0h1v2h-1zm-11 1h2v1h-2zm6 0h1v1h-1zm2 0h2v1h-2zm5 0h1v1h-1zm2 0h1v1h-1zm-12 1h1v2h-1zm2 0h2v1h-2zm2 0h2v1h-2zm4 0h2v1h-2zm5 0h1v2h-1zm-13 1h2v1h-2zm5 0h3v1h-3zm4 0h1v1h-1zm2 0h1v1h-1zm2 0h1v1h-1zm-13 1h1v2h-1zm2 0h1v1h-1zm2 0h1v1h-1zm5 0h1v1h-1zm2 0h2v1h-2zm-14 1h3v1h-3zm4 0h2v1h-2zm2 0h1v1h-1zm2 0h2v1h-2zm2 0h2v1h-2zm-12 1h1v1h-1zm5 0h2v1h-2zm5 0h1v1h-1zm-9 1h2v1h-2zm3 0h2v1h-2zm6 0h2v1h-2zm1 0h2v1h-2zm-11 1h1v1h-1zm3 0h1v1h-1zm3 0h1v1h-1zm4 0h1v1h-1zm2 0h1v1h-1zm-12 1h2v1h-2zm3 0h1v1h-1zm2 0h1v1h-1zm4 0h2v1h-2zm-10 1h2v1h-2zm4 0h3v1h-3zm3 0h1v1h-1zm1 0h3v1h-3z"/>
+                <path fill="#000000" d="M3 3h7v7H3zm24 0h7v7h-7zM3 27h7v7H3zm2 2h3v3H5zm24-24h3v3h-3zM5 5h3v3H5zm11 0h1v1h-1zm2 0h2v1h-2zm4 0h3v1h-3zm5 0h2v1h-2zm1 0h1v4h-1zm-2 2h1v2h-1zm4 0h1v1h-1zm-9 1h1v1h-1zm2 0h1v2h-1zm-9 1h3v1h-3zm4 0h2v1h-2zm5 0h1v1h-1zm4 0h1v3h-1zm-15 1h1v1h-1zm4 0h2v1h-2zm3 0h3v1h-3zm-9 1h1v1h-1zm3 0h2v3h-2zm3 0h1v2h-1zm3 0h1v1h-1zm2 0h2v2h-2zm2 0h1v2h-1zm3 0h2v1h-2zm-15 1h1v1h-1zm4 0h1v1h-1zm7 0h1v1h-1zm4 0h1v1h-1zm-19 1h1v2h-1zm3 0h1v1h-1zm2 0h4v1h-4zm5 0h2v1h-2zm4 0h2v3h-2zm3 0h2v1h-2zm-16 1h2v1h-2zm3 0h1v2h-1zm4 0h2v1h-2zm1 0h1v2h-1zm-11 1h2v1h-2zm6 0h1v1h-1zm2 0h2v1h-2zm5 0h1v1h-1zm2 0h1v1h-1zm-12 1h1v2h-1zm2 0h2v1h-2zm2 0h2v1h-2zm4 0h2v1h-2zm5 0h1v2h-1zm-13 1h2v1h-2zm5 0h3v1h-3zm4 0h1v1h-1zm2 0h1v1h-1zm2 0h1v1h-1zm-13 1h1v2h-1zm2 0h1v1h-1zm2 0h1v1h-1zm5 0h1v1h-1zm2 0h2v1h-2zm-14 1h3v1h-3zm4 0h2v1h-2zm2 0h1v1h-1zm2 0h2v1h-2zm2 0h2v1h-2zm-12 1h1v1h-1zm5 0h2v1h-2zm5 0h1v1h-1zm-9 1h2v1h-2zm3 0h2v1h-2zm6 0h2v1h-2zm1 0h2v1h-2zm-11 1h1v1h-1zm3 0h1v1h-1zm3 0h1v1h-1zm4 0h1v1h-1zm2 0h1v1h-1zm-12 1h2v1h-2zm3 0h1v1h-1zm2 0h1v1h-1zm4 0h2v1h-2zm-10 1h2v1h-2zm4 0h3v1h-3zm3 0h1v1h-1zm1 0h3v1h-3z"/>
                 <path fill="#000000" d="M3 3h1v7H3zm6 0h1v7H9ZM3 3h7v1H3zm0 6h7v1H3zm24-6h1v7h-1zm6 0h1v7h-1zm-6 0h7v1h-7zm0 6h7v1h-7zM3 27h1v7H3zm6 0h1v7H9ZM3 27h7v1H3zm0 6h7v1H3z"/>
             </svg>
         </div>
 
-        <h2 class="title">Pague com o Pix</h2>
-        <p class="subtitle">Escaneie o código acima ou copie a chave Pix abaixo.</p>
-
-        <!-- Campo Manual (Para garantir a cópia caso o botão falhe) -->
+        <!-- Campo Manual com borda tracejada (clique seleciona tudo) -->
         <div class="manual-copy-box">
-            <input type="text" id="pixKeyValue" value="2c04642f-fbb7-4b0f-9efb-434184b133f4" readonly onclick="this.select();">
+            <input type="text" id="pixKeyValue" value="2c04642f-fbb7-4b0f-9efb-434184b133f4" readonly onclick="this.select();" title="Clique para selecionar">
         </div>
 
-        <!-- Botão Principal de Cópia Automática -->
+        <!-- Botão de Cópia Automática -->
         <button class="btn-copy" id="copyBtn" onclick="copyPixKey()">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
             Copiar Chave Pix
         </button>
 
-        <div class="success-toast" id="successMessage">Chave Pix copiada com sucesso!</div>
+        <div class="success-toast" id="successMessage">✓ Chave Pix copiada com sucesso!</div>
     </div>
 
     <script>
         function copyPixKey() {
             const inputKey = document.getElementById('pixKeyValue');
             
-            // Tenta a API moderna primeiro
             if (navigator.clipboard && window.isSecureContext) {
                 navigator.clipboard.writeText(inputKey.value).then(() => {
                     showToast();
@@ -97,19 +179,18 @@
                     fallbackCopy(inputKey);
                 });
             } else {
-                // Fallback para navegadores antigos ou sem HTTPS
                 fallbackCopy(inputKey);
             }
         }
 
         function fallbackCopy(inputElement) {
             inputElement.select();
-            inputElement.setSelectionRange(0, 99999); // Para dispositivos móveis
+            inputElement.setSelectionRange(0, 99999);
             try {
                 document.execCommand('copy');
                 showToast();
             } catch (err) {
-                alert('Por favor, selecione o texto do campo manualmente e copie.');
+                alert('Selecione o texto da caixa acima e copie manualmente.');
             }
         }
 
