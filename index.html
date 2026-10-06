@@ -3434,8 +3434,8 @@ class StoreView extends Component {
                     <h2>Vitrine de produtos digitais</h2>
                     <p class="page-header__subtitle">
                         ${this.publicMode
-            ? 'PDFs, músicas, planilhas e cursos para baixar.'
-            : 'PDFs, músicas, planilhas e cursos — tudo funcionando offline e salvo no seu navegador.'}
+            ? 'PDFs, músicas, planilhas e cursos para baixar, com licença CC0 e Dominio Publico'
+            : 'PDFs, músicas, planilhas e cursos, com licença CC0(Common Creative) e Dominio Publico — tudo funcionando offline e salvo no seu navegador.'}
                     </p>
                 </div>
                 ${this.publicMode
@@ -3471,8 +3471,8 @@ class StoreView extends Component {
                 <select class="select-inline" id="store-sort" data-role="sort-select">
                     <option value="recent" ${this.sortBy === 'recent' ? raw('selected') : ''}>Mais recentes</option>
                     <option value="title" ${this.sortBy === 'title' ? raw('selected') : ''}>Título (A–Z)</option>
-                    <option value="price-asc" ${this.sortBy === 'price-asc' ? raw('selected') : ''}>Menor preço</option>
-                    <option value="price-desc" ${this.sortBy === 'price-desc' ? raw('selected') : ''}>Maior preço</option>
+                    <option value="price-asc" ${this.sortBy === 'price-asc' ? raw('selected') : ''}>Menor Doação</option>
+                    <option value="price-desc" ${this.sortBy === 'price-desc' ? raw('selected') : ''}>Maior Doação</option>
                 </select>
             </div>
 
@@ -3497,7 +3497,7 @@ class StoreView extends Component {
                     <div class="stat-card__hint">ativas no catálogo</div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-card__label">Preço médio</div>
+                    <div class="stat-card__label">Doação médio</div>
                     <div class="stat-card__value">${formatShortCurrency(stats.avgPriceCents)}</div>
                     <div class="stat-card__hint">entre os itens cadastrados</div>
                 </div>
@@ -3814,7 +3814,7 @@ class ProductDetailView extends Component {
     renderFlowSteps() {
         const steps = [
             { label: '1. Escolher', state: 'selecionado' },
-            { label: '2. Pagar', state: this.flowState === 'pago' ? 'done' : 'selecionado' },
+            { label: '2. Contribuir', state: this.flowState === 'pago' ? 'done' : 'selecionado' },
             { label: '3. Baixar', state: this.flowState === 'pago' ? 'done' : 'selecionado' },
         ];
         return html `
@@ -3878,11 +3878,11 @@ class ProductDetailView extends Component {
             >💳 ${product.paymentLabel || 'Comprar'}</a>
 
             <button type="button" class="btn btn--outline btn--block" data-action="confirmPayment">
-                ✔ Já efetuei o pagamento
+                ✔ Já efetuei a contribuição, doação ou pagamento.
             </button>
 
             <p class="text-muted" style="font-size: 0.8rem; text-align: center;">
-                O botão de pagamento abre em uma nova aba. Volte aqui e confirme para liberar o download.
+                O botão de pagamento, doação ou contribuição, abre em uma nova aba. Volte aqui e confirme para liberar o download.
             </p>
         `;
     }
@@ -3893,9 +3893,12 @@ class ProductDetailView extends Component {
                 <span class="callout__icon" aria-hidden="true">ℹ️</span>
                 <div>
                     <strong>Sobre a entrega:</strong> esta é uma aplicação 100% offline, sem servidor.
-                    A confirmação de pagamento é declarada pelo próprio comprador e fica salva apenas neste navegador.
-                    Para cobrar de verdade, aponte o link de pagamento para um checkout
+                    A confirmação,doação ou contribuição, pagamento é declarada pelo próprio comprador e fica salva apenas neste navegador.
+                    Para cobrar de verdade, aponte o link de pagamento para um checkout 
                     (Mercado Pago, Gumroad, Stripe, Hotmart) que libere o arquivo após a confirmação.
+                    Fique atento o valor cobrado é pelo curadoria (indicação de material de qualidade), e manutenção do acervo, em site de terceiros dos itens de dominio publico, caso algum deles não esteja disponivel, não existe responsabilidade por estes itens,
+                    Somos somente um index deste materiais igual sites similares (google search, duckduckgo search, yahoo search) e outros. 
+                    Os Valores comprados em sites de cursos são extritamente, referentes aos mesmo (Mercado Pago, Gumroad, Stripe, Hotmart) e outros, ele tem sistema proprio de login e pagamento e download dos arquivos ou visualização dos cursos, ou materiais curados neste repositorios.
                 </div>
             </div>
         `;
