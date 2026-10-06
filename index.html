@@ -1718,6 +1718,7 @@ function defaultFormSchema() {
                     { value: 'planilha', label: 'Planilha' },
                     { value: 'curso', label: 'Curso' },
                     { value: 'template', label: 'Template' },
+                    { value: 'livro', label: 'Livro' },
                     { value: 'outro', label: 'Outro' },
                 ],
             },
@@ -1725,7 +1726,7 @@ function defaultFormSchema() {
             { id: 'description', label: 'Descrição', type: 'textarea', required: true, path: 'description' },
             { id: 'image', label: 'Imagem (URL ou Base64)', type: 'url', path: 'image' },
             { id: 'paymentLink', label: 'Link de pagamento / doação', type: 'url', path: 'paymentLink' },
-            { id: 'paymentLabel', label: 'Texto do botão de pagamento', type: 'text', path: 'paymentLabel', placeholder: 'Comprar' },
+            { id: 'paymentLabel', label: 'Texto do botão de pagamento', type: 'text', path: 'paymentLabel', placeholder: 'Adquirir' },
             { id: 'downloadLink', label: 'Link de download', type: 'url', path: 'downloadLink' },
             { id: 'tags', label: 'Tags', type: 'tags', path: 'tags', help: 'Separe por vírgula.' },
             { id: 'published', label: 'Publicado na vitrine', type: 'checkbox', path: 'published' },
@@ -3365,7 +3366,7 @@ function renderProductCard(product, options = {}) {
                     </span>
                     <div class="product-card__actions">
                         ${extraActions ?? ''}
-                        <a class="btn btn--primary btn--sm" href="${href}">Ver</a>
+                        <a class="btn btn--primary btn--sm" href="${href}">Ver Curadoria</a>
                     </div>
                 </div>
             </div>
@@ -3434,8 +3435,8 @@ class StoreView extends Component {
                     <h2>Vitrine de produtos digitais</h2>
                     <p class="page-header__subtitle">
                         ${this.publicMode
-            ? 'PDFs, músicas, planilhas e cursos para baixar, com licença CC0 e Dominio Publico'
-            : 'PDFs, músicas, planilhas e cursos, com licença CC0(Common Creative) e Dominio Publico — tudo funcionando offline e salvo no seu navegador.'}
+            ? 'Digital Store é um catálogo independente e colaborativo. Não é vendido arquivos protegidos por direitos autorais. Se por ventura algum deles estive com dados comeciais, não faça o uso, ou compre do proprietario do direito, o trabalho consiste em selecionar, testar e indexar materiais úteis de domínio público ou gratuitos espalhados pela web. Considere apoiar a manutenção do projeto com uma contribuição voluntária. Com licença CC0 e Dominio Publico'
+            : 'Digital Store é um catálogo independente e colaborativo. Não é vendido arquivos protegidos por direitos autorais. Se por ventura algum deles estive com dados comeciais, não faça o uso, ou compre do proprietario do direito, o trabalho consiste em selecionar, testar e indexar materiais úteis de domínio público ou gratuitos espalhados pela web. Considere apoiar a manutenção do projeto com uma contribuição voluntária. Com licença CC0(Common Creative) e Dominio Publico — tudo funcionando offline e salvo no seu navegador.'}
                     </p>
                 </div>
                 ${this.publicMode
@@ -3883,6 +3884,8 @@ class ProductDetailView extends Component {
 
             <p class="text-muted" style="font-size: 0.8rem; text-align: center;">
                 O botão de pagamento, doação ou contribuição, abre em uma nova aba. Volte aqui e confirme para liberar o download.
+                ℹ️ Acesso Livre: O link para o site original do autor é gratuito e está disponível para todos.
+                A contribuição financeira abaixo é 100% voluntária e serve para apoiar o nosso trabalho de busca e organização.
             </p>
         `;
     }
