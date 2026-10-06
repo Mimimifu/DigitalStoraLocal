@@ -3889,18 +3889,23 @@ class ProductDetailView extends Component {
     /** Aviso sobre o escopo da validação de pagamento. */
     renderTechnicalNotice() {
         return html `
-            <div class="callout callout--info" style="margin-top: 2rem;">
-                <span class="callout__icon" aria-hidden="true">ℹ️</span>
-                <div>
-                    <strong>Sobre a entrega:</strong> esta é uma aplicação 100% offline, sem servidor.
-                    A confirmação,doação ou contribuição, pagamento é declarada pelo próprio comprador e fica salva apenas neste navegador.
-                    Para cobrar de verdade, aponte o link de pagamento para um checkout 
-                    (Mercado Pago, Gumroad, Stripe, Hotmart) que libere o arquivo após a confirmação.
-                    Fique atento o valor cobrado é pelo curadoria (indicação de material de qualidade), e manutenção do acervo, em site de terceiros dos itens de dominio publico, caso algum deles não esteja disponivel, não existe responsabilidade por estes itens,
-                    Somos somente um index deste materiais igual sites similares (google search, duckduckgo search, yahoo search) e outros. 
-                    Os Valores comprados em sites de cursos são extritamente, referentes aos mesmo (Mercado Pago, Gumroad, Stripe, Hotmart) e outros, ele tem sistema proprio de login e pagamento e download dos arquivos ou visualização dos cursos, ou materiais curados neste repositorios.
-                </div>
-            </div>
+<div class="callout callout--info" style="margin-top: 2rem;">
+    <span class="callout__icon" aria-hidden="true">⚠️</span>
+    <div>
+        <strong>Sobre a entrega: esta é uma aplicação 100% offline e sem servidor.</strong><br>
+        Toda confirmação de pagamento, doação ou contribuição é declarada voluntariamente pelo próprio comprador e fica salva <em>apenas neste navegador</em>.
+        <br><br>
+        Para realizar cobranças reais, configure o seu link de pagamento para um checkout externo (Mercado Pago, Gumroad, Stripe, Hotmart) que libere o arquivo automaticamente após a confirmação.
+        <br><br>
+        <strong>Fique atento aos Termos de Uso:</strong>
+        <ul style="margin: 0.5rem 0 0 1.2rem; padding: 0; line-height: 1.5;">
+            <li style="margin-bottom: 0.5rem;"><strong>Escopo da Cobrança:</strong> O valor cobrado refere-se estritamente ao serviço de curadoria (indicação de materiais de qualidade) e à manutenção do acervo de itens de domínio público hospedados em sites de terceiros.</li>
+            <li style="margin-bottom: 0.5rem;"><strong>Isenção de Responsabilidade:</strong> Caso algum link de terceiros não esteja disponível, não há responsabilidade por estes itens. Somos apenas um indexador deste material, assim como motores de busca (Google Search, DuckDuckGo, Yahoo Search e outros).</li>
+            <li><strong>Plataformas Externas:</strong> Os valores pagos em sites de cursos são estritamente referentes aos mesmos (Mercado Pago, Gumroad, Stripe, Hotmart, etc.). Eles possuem sistemas próprios de login, pagamento, visualização e download de arquivos, sem vínculo técnico com este repositório.</li>
+        </ul>
+    </div>
+</div>
+
         `;
     }
     /** Estado de produto inexistente. */
