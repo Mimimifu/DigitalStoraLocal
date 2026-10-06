@@ -1234,11 +1234,55 @@ textarea.form-control { resize: vertical; min-height: 110px; }
     .modal__footer { flex-direction: column-reverse; }
     .modal__footer .btn { width: 100%; }
 }
+
+    .footer {
+        /* 1. Posicionamento Fixo e Flutuante */
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 9999;
+        box-sizing: border-box;
+        
+        /* 2. Design e Visual Dark */
+        background-color: rgba(15, 23, 42, 0.95);
+        backdrop-filter: blur(8px);
+        border-top: 1px solid #1e293b;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        
+        /* 3. Tipografia e Alinhamento */
+        color: #94a3b8;
+        text-align: center;
+        padding: 12px 20px;
+        font-family: sans-serif;
+        font-size: 13px;
+    }
+
+    /* Estilizando os elementos internos direto pela classe pai .footer */
+    .footer strong {
+        color: #ffffff;
+    }
+
+    .footer a {
+        color: #38bdf8;
+        text-decoration: none;
+        margin-left: 8px;
+        font-weight: 500;
+        transition: color 0.2s ease;
+    }
+
+    .footer a:hover {
+        color: #2563eb;
+        text-decoration: underline;
+    }        
+
+        
 </style>
 </head>
 <body>
     <a class="skip-link" href="#main-content">Pular para o conteúdo principal</a>
     <div id="app-root" class="app-root"></div>
+    <div class="footer"><a href="legal.html">Termos legais de uso</a></div>
     <noscript>
         <p class="noscript-warning">
             Esta aplicação requer JavaScript habilitado para funcionar.
